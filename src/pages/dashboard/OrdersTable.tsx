@@ -47,19 +47,19 @@ function createData(
 
 const rows = [
   createData(
-    24223,
-    "Set1",
+    493378,
+    "M19 Sierra Wireless RV50",
     43.4926827,
     -112.1037469,
-    "Buenos Aires",
-    "Sample",
-    "Sector 1",
-    "50 deg",
+    "site 8976896A",
+    "T Mobile",
+    "10",
+    "2",
     0
   ),
   createData(
     545535,
-    "RF Elements A60",
+    "Airgain MaxBeam 80N",
     40.649096,
     -73.964303,
     "site 4363278B",
@@ -70,7 +70,7 @@ const rows = [
   ),
   createData(
     545536,
-    "Motorola A60",
+    "Ericsson 5Gran",
     41.695668,
    -86.896218,
     "site 4363260A",
