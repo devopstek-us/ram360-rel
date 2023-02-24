@@ -1,0 +1,33 @@
+/* For use in app/styles/color-palette.scss */
+export const customPrimary = {
+  50: "#fbebf9",
+  100: "#f5ceef",
+  200: "#eeade4",
+  300: "#e78cd9",
+  400: "#e273d1",
+  500: "#dd5ac9",
+  600: "#d952c3",
+  700: "#d448bc",
+  800: "#cf3fb5",
+  900: "#c72ea9",
+  A100: "#ffffff",
+  A200: "#ffd6f7",
+  A400: "#ffa3ec",
+  A700: "#ff8ae7",
+};
+export const customSecondary = {
+  50: "#f2e8f3",
+  100: "#ddc5e1",
+  200: "#c79fcd",
+  300: "#b179b9",
+  400: "#a05caa",
+  500: "#8f3f9b",
+  600: "#873993",
+  700: "#7c3189",
+  800: "#72297f",
+  900: "#601b6d",
+  A100: "#f0a9ff",
+  A200: "#e776ff",
+  A400: "#de43ff",
+  A700: "#d92aff",
+};
