@@ -64,7 +64,7 @@ const AnalyticEcommerce = ({
         )}
       </Grid>
     </Stack>
-    <Box sx={{ pt: 2.25 }}>
+    {/* <Box sx={{ pt: 2.25 }}>
       <Typography variant="caption" color="textSecondary">
         You made an extra{" "}
         <Typography
@@ -76,7 +76,7 @@ const AnalyticEcommerce = ({
         </Typography>{" "}
         this year
       </Typography>
-    </Box>
+    </Box> */}
   </MainCard>
 );
 
