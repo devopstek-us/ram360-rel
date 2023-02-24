@@ -88,8 +88,8 @@ const TowersMap = (props: Props) => {
         title={
           selectedMarker ? (
             <Box>
-              <div>marker: {selectedMarker.name}</div>
-              <div>DAP: {selectedMarker.DAP}</div>
+              <div>{selectedMarker.name}</div>
+              {/* <div>DAP: {selectedMarker.DAP}</div> */}
             </Box>
           ) : (
             ""

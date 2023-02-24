@@ -40,7 +40,7 @@ const IncomeAreaChart = ({ slot }: any) => {
   useEffect(() => {
     setOptions((prevState: any) => ({
       ...prevState,
-      colors: [theme.palette.error.main, theme.palette.primary.light],
+      colors: [theme.palette.error.main, theme.palette.success.main],
       xaxis: {
         categories:
           slot === "day"
@@ -109,11 +109,11 @@ const IncomeAreaChart = ({ slot }: any) => {
 
   const [series, setSeries] = useState([
     {
-      name: "Failed Antennas",
+      name: "Misaligned Antennas",
       data: [0, 86, 28, 115, 48, 210, 136],
     },
     {
-      name: "Replaced Antennas",
+      name: "Healthy Antennas",
       data: [0, 43, 14, 56, 24, 105, 68],
     },
   ]);
@@ -121,7 +121,7 @@ const IncomeAreaChart = ({ slot }: any) => {
   useEffect(() => {
     setSeries([
       {
-        name: "Failed Antennas",
+        name: "Misaligned Antennas",
         data:
           slot === "day"
             ? [
@@ -135,7 +135,7 @@ const IncomeAreaChart = ({ slot }: any) => {
             : [31, 40, 28, 51, 42, 109, 100],
       },
       {
-        name: "Replaced Antennas",
+        name: "Healthy Antennas",
         data:
           slot === "day"
             ? [

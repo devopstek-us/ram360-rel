@@ -1,12 +1,14 @@
 // material-ui
+import { Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-
+import LogoImage from "../../assets/logo.png";
 /**
  * if you want to use image instead of <svg> uncomment following.
  *
  * import logoDark from 'assets/images/logo-dark.svg';
  * import logo from 'assets/images/logo.svg';
- *
+ *import Typography from './../../themes/typography';
+
  */
 
 // ==============================|| LOGO SVG ||============================== //
@@ -16,7 +18,7 @@ const Logo = () => {
 
   return (
     <>
-      <svg
+      {/* <svg
         height="45"
         viewBox="0 0 1000 500"
         fill="none"
@@ -191,7 +193,8 @@ const Logo = () => {
             </g>
           </g>
         </g>
-      </svg>
+      </svg> */}
+      <img src={LogoImage} style={{height:"45px"}} alt="Logo" />
     </>
   );
 };

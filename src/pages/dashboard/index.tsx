@@ -76,7 +76,7 @@ const status = [
 // ==============================|| DASHBOARD - DEFAULT ||============================== //
 
 const DashboardDefault = () => {
-  const [value, setValue] = useState("today");
+  const [value, setValue] = useState("year");
   const [slot, setSlot] = useState("week");
 
   return (
@@ -88,7 +88,7 @@ const DashboardDefault = () => {
       <Grid item xs={12}>
         <Grid container alignItems="center" justifyContent="space-between">
           <Grid item>
-            <Typography variant="h5">Monitoring Report</Typography>
+            <Typography variant="h5">Summary</Typography>
           </Grid>
           <Grid item>
             <Stack direction="row" alignItems="center" spacing={0}>
@@ -135,16 +135,46 @@ const DashboardDefault = () => {
       </Grid>
       <Grid item xs={12}>
         <Grid container rowSpacing={1} columnSpacing={2}>
-          <Grid item xs={3} sx={{ mb: -2.25 }}>
+          <Grid item xs={12}>
+            <Grid container alignItems="center" justifyContent="space-between">
+              <Grid item flex={1} textAlign={"center"}>
+                <Typography variant="h5">
+                  Realtime Antenna Monitoring 360
+                </Typography>
+              </Grid>
+              <Grid item>
+                <TextField
+                  id="standard-select-currency"
+                  size="small"
+                  select
+                  value={value}
+                  onChange={(e) => setValue(e.target.value)}
+                  sx={{
+                    "& .MuiInputBase-input": {
+                      py: 0.5,
+                      fontSize: "0.875rem",
+                    },
+                  }}
+                >
+                  {status.map((option) => (
+                    <MenuItem key={option.value} value={option.value}>
+                      {option.label}
+                    </MenuItem>
+                  ))}
+                </TextField>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item xs={4} sx={{ mb: -2.25 }}>
             <Box display={"flex"} alignItems="center" flexDirection={"column"}>
-              <Typography variant="h5">
+              {/* <Typography variant="h5">
                 Realtime Antenna Monitoring 360
-              </Typography>
+              </Typography> */}
               <TowersMap />
             </Box>
           </Grid>
 
-          <Grid item xs={9}>
+          <Grid item xs={8}>
             {/* <Grid container rowSpacing={1} columnSpacing={2}>
               <Grid item xs={3}>
                 <AnalyticEcommerce
@@ -185,9 +215,11 @@ const DashboardDefault = () => {
               </Grid>
             </Grid> */}
 
-            <Grid container alignItems="center" justifyContent="space-between">
+            {/* <Grid container alignItems="center" justifyContent="space-between">
               <Grid item>
-                <Typography variant="h5">Tower Info </Typography>
+                <Typography variant="h5">
+                  Realtime Antenna Monitoring 360
+                </Typography>
               </Grid>
               <Grid item>
                 <TextField
@@ -210,11 +242,11 @@ const DashboardDefault = () => {
                   ))}
                 </TextField>
               </Grid>
-            </Grid>
+            </Grid> */}
             <MainCard sx={{ mt: 1.75 }}>
               <Stack spacing={1.5} sx={{ mb: -12 }}>
                 <Typography variant="h6" color="secondary">
-                  New Towers
+                  Tower Stats
                 </Typography>
                 <Typography variant="h4">1560</Typography>
               </Stack>
@@ -244,7 +276,7 @@ const DashboardDefault = () => {
           </Grid>
           <Grid item xs={3}>
             <AnalyticEcommerce
-              title="Total repaired antennas"
+              title="Mis-aligned Antennas"
               count="18,800"
               percentage={27.4}
               isLoss
@@ -255,12 +287,12 @@ const DashboardDefault = () => {
 
           <Grid item xs={3}>
             <AnalyticEcommerce
-              title="Total replaced antennas"
-              count="$35,078"
+              title="Azimuth Corrected Antennas"
+              count="35,078"
               percentage={27.4}
               isLoss
               color="warning"
-              extra="$20,395"
+              extra="20,395"
             />
           </Grid>
         </Grid>
