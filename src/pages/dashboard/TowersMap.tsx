@@ -91,7 +91,7 @@ const TowersMap = (props: Props) => {
   const navigate = useNavigate();
   const [content, setContent] = useState<number | null>(null);
   const [hovered, setHovered] = useState<number | null>(null);
-  const selectedMarker = content ? markers[content] : null;
+  const selectedMarker = content !== null ? markers[content] : null;
   return (
     <>
       <Tooltip
