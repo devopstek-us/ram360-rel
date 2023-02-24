@@ -10,7 +10,7 @@ import { Box } from "@mui/material";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 import "./maps.scss";
 const geoUrl =
-  "https://raw.githubusercontent.com/deldersveld/topojson/master/continents/north-america.json";
+  "https://raw.githubusercontent.com/deldersveld/topojson/master/countries/united-states/us-albers.json";
 // "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json";
 // const geoUrl =
 //   "https://raw.githubusercontent.com/deldersveld/topojson/master/continents/south-america.json";
@@ -36,31 +36,31 @@ const markers = [
     name: "Alexandria",
     coordinates: [-92.471176, 31.284788],
   },
-  { DAP: 100, name: "Ottawa", coordinates: [-75.697189, 45.421532] },
+  { DAP: 100, name: "Dallas", coordinates: [-96.8716377, 32.8205865] },
   {
     DAP: 98,
-    name: "Edmonton",
-    coordinates: [-113.7729143, 53.5263531],
+    name: "Norton",
+    coordinates: [-99.911016, 39.8383291],
   },
   {
     DAP: 0,
-    name: "Talkeetna",
-    coordinates: [-150.1763322, 62.272212],
+    name: "Atlantic Station",
+    coordinates: [-84.4041256, 33.7924957],
   },
   {
     DAP: 0,
-    name: "Beluga",
-    coordinates: [-151.308337, 61.1748902],
+    name: "Wilmington",
+    coordinates: [-77.9421102, 34.207116],
   },
   {
     DAP: 2,
-    name: "Sachs Harbour",
-    coordinates: [-125.5466563, 71.9421897],
+    name: "Chamberlain",
+    coordinates: [-99.3598979, 43.7845057],
   },
   {
     DAP: 0,
-    name: "Taloyoak",
-    coordinates: [-93.6425533, 69.5419244],
+    name: "Harrison",
+    coordinates: [-103.8892718, 42.6891891],
   },
   {
     DAP: 35,
@@ -71,6 +71,16 @@ const markers = [
     DAP: 0,
     name: "Denver",
     coordinates: [-104.9951957, 39.7642548],
+  },
+  {
+    DAP: 0,
+    name: "Spring Valley",
+    coordinates: [-115.3317164, 36.0863414],
+  },
+  {
+    DAP: 0,
+    name: "Oakland",
+    coordinates: [-122.3753924, 37.7586346],
   },
 ];
 
@@ -102,8 +112,8 @@ const TowersMap = (props: Props) => {
           projection="geoAzimuthalEqualArea"
           projectionConfig={{
             rotate: [65, 20, 0],
-            scale: 500,
-            center: [-35, 60],
+            scale: 800,
+            center: [-37, 45],
           }}
           // height={500}
         >
@@ -129,6 +139,11 @@ const TowersMap = (props: Props) => {
                   //     outline: "none"
                   //   }
                   // }}
+                  style={{
+                    default: { outline: "none" },
+                    hover: { outline: "none" },
+                    pressed: { outline: "none" },
+                  }}
                 />
               ))
             }
