@@ -68,6 +68,39 @@ const rows = [
     "1",
     0
   ),
+  createData(
+    545536,
+    "Motorola A60",
+    41.695668,
+   -86.896218,
+    "site 4363260A",
+    "T Mobile",
+    "2",
+    "1",
+    1
+  ),
+  createData(
+    545540,
+    "KP Performance KPPA-900-120-11.5",
+    40.003656,
+   -83.007354,
+    "site 4363756A",
+    "T Mobile",
+    "1",
+    "3",
+    0
+  ),
+  createData(
+    478465,
+    "Cambium Networks - C050045AL08C - PMP450i",
+    39.779110,
+   -84.334670,
+    "site 6789865B",
+    "T Mobile",
+    "2",
+    "1",
+    1
+  )
 ];
 
 function descendingComparator(a: any, b: any, orderBy: any) {
