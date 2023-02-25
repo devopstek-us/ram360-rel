@@ -82,7 +82,10 @@ const columnChartOptions = {
 
 // ==============================|| SALES COLUMN CHART ||============================== //
 
-const SalesColumnChart = () => {
+interface Props {
+  slot: "year" | "monthly" | "month" | "week" | "day";
+}
+const SalesColumnChart = ({ slot }: Props) => {
   const theme = useTheme();
   const { primary, secondary } = theme.palette.text;
   const greenColor = theme.palette.success.main;
@@ -92,7 +95,7 @@ const SalesColumnChart = () => {
   const primaryMain = theme.palette.primary.main;
   const successDark = theme.palette.success.dark;
 
-  const [series] = useState([
+  const [series, setSeries] = useState([
     {
       name: "Healthy Towers",
       data: [180, 90, 135, 114, 120, 145],
@@ -122,6 +125,35 @@ const SalesColumnChart = () => {
             ],
           },
         },
+        categories:
+          slot === "day"
+            ? [
+                1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,
+                19, 20, 21, 22, 23, 24,
+              ]
+            : slot === "month"
+            ? [
+                1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,
+                19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
+              ]
+            : slot === "year"
+            ? ["2020", "2021", "2022", "2023"]
+            : slot === "monthly"
+            ? [
+                "Jan",
+                "Feb",
+                "Mar",
+                "Apr",
+                "May",
+                "Jun",
+                "Jul",
+                "Aug",
+                "Sep",
+                "Oct",
+                "Nov",
+                "Dec",
+              ]
+            : ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
       },
       yaxis: {
         labels: {
@@ -144,7 +176,58 @@ const SalesColumnChart = () => {
         },
       },
     }));
-  }, [primary, secondary, line, warning, primaryMain, successDark]);
+
+    setSeries([
+      {
+        name: "Misaligned Antennas",
+        data:
+          slot === "day"
+            ? [
+                76, 85, 101, 98, 87, 105, 91, 114, 94, 98, 87, 105, 91, 114, 94,
+                86, 101, 98, 87, 105, 115, 35, 76, 85,
+              ]
+            : slot === "month"
+            ? [
+                76, 85, 101, 98, 87, 105, 91, 114, 94, 86, 115, 35, 76, 85, 101,
+                35, 76, 85, 101, 98, 87, 105, 98, 87, 105, 91, 114, 94, 86, 115,
+              ]
+            : slot === "year"
+            ? [489, 290, 786, 576]
+            : slot === "monthly"
+            ? [76, 85, 101, 98, 87, 105, 91, 114, 94, 86, 115, 35]
+            : [31, 40, 28, 51, 42, 109, 100],
+      },
+      {
+        name: "Healthy Antennas",
+        data:
+          slot === "day"
+            ? [
+                105, 91, 114, 94, 86, 115, 35, 76, 114, 76, 85, 101, 98, 87, 94,
+                86, 115, 35, 76, 85, 101, 98, 87, 105,
+              ]
+            : slot === "month"
+            ? [
+                105, 91, 114, 94, 86, 115, 35, 76, 85, 101, 98, 87, 105, 91,
+                114, 76, 85, 101, 98, 87, 94, 86, 115, 35, 76, 85, 101, 98, 87,
+                105,
+              ]
+            : slot === "year"
+            ? [890, 456, 90, 1000]
+            : slot === "monthly"
+            ? [110, 60, 150, 35, 60, 36, 26, 45, 65, 52, 53, 41]
+            : [11, 32, 45, 32, 34, 52, 41],
+      },
+    ]);
+  }, [
+    primary,
+    secondary,
+    line,
+    warning,
+    primaryMain,
+    successDark,
+    slot,
+    greenColor,
+  ]);
 
   return (
     <div id="chart">

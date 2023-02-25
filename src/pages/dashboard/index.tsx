@@ -60,24 +60,32 @@ const actionSX = {
 // sales report status
 const status = [
   {
-    value: "today",
-    label: "Today",
+    value: "year",
+    label: "Yearly",
+  },
+  {
+    value: "monthly",
+    label: "Monthly",
   },
   {
     value: "month",
     label: "This Month",
   },
   {
-    value: "year",
-    label: "This Year",
+    value: "week",
+    label: "This Week",
+  },
+  {
+    value: "day",
+    label: "Today",
   },
 ];
 
 // ==============================|| DASHBOARD - DEFAULT ||============================== //
 
 const DashboardDefault = () => {
-  const [value, setValue] = useState("year");
-  const [slot, setSlot] = useState("week");
+  const [value, setValue] = useState("week");
+  const [slot, setSlot] = useState("monthly");
 
   return (
     <Grid container rowSpacing={4.5} columnSpacing={2.75}>
@@ -92,38 +100,19 @@ const DashboardDefault = () => {
           </Grid>
           <Grid item>
             <Stack direction="row" alignItems="center" spacing={0}>
-              <Button
-                size="small"
-                onClick={() => setSlot("year")}
-                color={slot === "year" ? "primary" : "secondary"}
-                variant={slot === "year" ? "outlined" : "text"}
-              >
-                Year
-              </Button>
-              <Button
-                size="small"
-                onClick={() => setSlot("month")}
-                color={slot === "month" ? "primary" : "secondary"}
-                variant={slot === "month" ? "outlined" : "text"}
-              >
-                Month
-              </Button>
-              <Button
-                size="small"
-                onClick={() => setSlot("week")}
-                color={slot === "week" ? "primary" : "secondary"}
-                variant={slot === "week" ? "outlined" : "text"}
-              >
-                Week
-              </Button>
-              <Button
-                size="small"
-                onClick={() => setSlot("day")}
-                color={slot === "day" ? "primary" : "secondary"}
-                variant={slot === "day" ? "outlined" : "text"}
-              >
-                Day
-              </Button>
+              {status.map((status) => {
+                return (
+                  <Button
+                    key={status.value}
+                    size="small"
+                    onClick={() => setSlot(status.value)}
+                    color={slot === status.value ? "primary" : "secondary"}
+                    variant={slot === status.value ? "outlined" : "text"}
+                  >
+                    {status.label}
+                  </Button>
+                );
+              })}
             </Stack>
           </Grid>
         </Grid>
@@ -250,7 +239,7 @@ const DashboardDefault = () => {
                 </Typography>
                 <Typography variant="h4">1560</Typography>
               </Stack>
-              <SalesColumnChart />
+              <SalesColumnChart slot={value as any} />
             </MainCard>
           </Grid>
         </Grid>

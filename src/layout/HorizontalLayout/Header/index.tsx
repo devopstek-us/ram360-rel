@@ -30,7 +30,7 @@ const Header = ({ open, handleDrawerToggle }: Props) => {
   };
   return (
     <>
-      <AppBar {...appBar} component={"div"}>
+      <AppBar {...appBar} color={theme.palette.mode === 'dark'? "primary": "inherit"} enableColorOnDark={theme.palette.mode === 'dark'? true: undefined}  component={"div"}>
         <Toolbar>
           <Box p={1} mr={3}>
             <HeaderLogo />

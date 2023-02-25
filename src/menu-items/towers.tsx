@@ -1,5 +1,6 @@
 // assets
 import { ChromeOutlined, QuestionOutlined } from "@ant-design/icons";
+import { towersData } from "pages/dashboard/OrdersTable";
 
 // icons
 const icons = {
@@ -13,37 +14,15 @@ const towers = {
   id: "towers",
   title: "Towers",
   type: "group",
-  children: [
-    {
-      id: "tower1",
-      title: "Tower 1",
+  children: [...towersData].splice(0, 5).map((item) => {
+    return {
+      id: item.antenna_number,
+      title: item.site_address,
       type: "item",
-      url: "/tower/1",
+      url: "/tower/" + item.antenna_number,
       icon: icons.ChromeOutlined,
-    },
-    {
-      id: "tower2",
-      title: "Tower 2",
-      type: "item",
-      url: "/tower/2",
-      icon: icons.ChromeOutlined,
-    },
-    {
-      id: "tower3",
-      title: "Tower 3",
-      type: "item",
-      url: "/tower/3",
-      // url: "/dashboard/default",
-      icon: icons.ChromeOutlined,
-    },
-    {
-      id: "tower4",
-      title: "Tower 4",
-      type: "item",
-      url: "/tower/4",
-      icon: icons.ChromeOutlined,
-    },
-  ],
+    };
+  }),
 };
 
 export default towers;

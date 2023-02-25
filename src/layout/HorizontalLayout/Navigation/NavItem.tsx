@@ -33,15 +33,26 @@ interface NavItemProps {
 // Appbar styled
 const NavLink = styled(NavLinkBase)(({ theme }) => ({
   textDecoration: "none",
-  color: theme.palette.text.primary,
+  color:
+    theme.palette.mode === "dark"
+      ? theme.palette.primary.contrastText
+      : theme.palette.text.primary,
   marginRight: theme.spacing(1.5),
   transition: "border-width ease-in-out .1s",
 
   "&.active": {
-    borderBottom: "3px solid " + theme.palette.primary.dark,
+    borderBottom:
+      "3px solid " +
+      (theme.palette.mode === "dark"
+        ? theme.palette.primary.contrastText
+        : theme.palette.primary.dark),
   },
   "&:hover": {
-    borderBottom: "3px solid " + theme.palette.primary.light,
+    borderBottom:
+      "3px solid " +
+      (theme.palette.mode === "dark"
+        ? theme.palette.secondary.dark
+        : theme.palette.primary.light),
   },
 }));
 

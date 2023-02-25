@@ -9,80 +9,89 @@ import Tooltip from "@mui/material/Tooltip";
 import { Box } from "@mui/material";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 import "./maps.scss";
+import { towersData } from "./OrdersTable";
 const geoUrl =
   "https://raw.githubusercontent.com/deldersveld/topojson/master/countries/united-states/us-albers.json";
 // "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json";
 // const geoUrl =
 //   "https://raw.githubusercontent.com/deldersveld/topojson/master/continents/south-america.json";
 
-const markers = [
-  {
-    DAP: 0,
-    name: "Buenos Aires",
-    coordinates: [-112.1037469, 43.4926827],
-  },
-  {
-    DAP: 10,
-    name: "Newton",
-    coordinates: [-71.217133, 42.341042],
-  },
-  {
-    DAP: 24,
-    name: "Newburyport",
-    coordinates: [-70.893875, 42.810356],
-  },
-  {
-    DAP: 78,
-    name: "Alexandria",
-    coordinates: [-92.471176, 31.284788],
-  },
-  { DAP: 100, name: "Dallas", coordinates: [-96.8716377, 32.8205865] },
-  {
-    DAP: 98,
-    name: "Norton",
-    coordinates: [-99.911016, 39.8383291],
-  },
-  {
-    DAP: 0,
-    name: "Atlantic Station",
-    coordinates: [-84.4041256, 33.7924957],
-  },
-  {
-    DAP: 0,
-    name: "Wilmington",
-    coordinates: [-77.9421102, 34.207116],
-  },
-  {
-    DAP: 2,
-    name: "Chamberlain",
-    coordinates: [-99.3598979, 43.7845057],
-  },
-  {
-    DAP: 0,
-    name: "Harrison",
-    coordinates: [-103.8892718, 42.6891891],
-  },
-  {
-    DAP: 35,
-    name: "Great Falls",
-    coordinates: [-111.3735546, 47.5047686],
-  },
-  {
-    DAP: 0,
-    name: "Denver",
-    coordinates: [-104.9951957, 39.7642548],
-  },
-  {
-    DAP: 0,
-    name: "Spring Valley",
-    coordinates: [-115.3317164, 36.0863414],
-  },
-  {
-    DAP: 0,
-    name: "Oakland",
-    coordinates: [-122.3753924, 37.7586346],
-  },
-];
+const markers = towersData.map((data) => {
+  return {
+    antenna_number: data.antenna_number,
+    MAP: data.MAP,
+    name: data.site_address,
+    coordinates: [data.longitude, data.latitude],
+  };
+});
+// const markers = [
+//   {
+//     MAP: 0,
+//     name: "Buenos Aires",
+//     coordinates: [-112.1037469, 43.4926827],
+//   },
+//   {
+//     MAP: 10,
+//     name: "Newton",
+//     coordinates: [-71.217133, 42.341042],
+//   },
+//   {
+//     MAP: 24,
+//     name: "Newburyport",
+//     coordinates: [-70.893875, 42.810356],
+//   },
+//   {
+//     MAP: 78,
+//     name: "Alexandria",
+//     coordinates: [-92.471176, 31.284788],
+//   },
+//   { MAP: 100, name: "Dallas", coordinates: [-96.8716377, 32.8205865] },
+//   {
+//     MAP: 98,
+//     name: "Norton",
+//     coordinates: [-99.911016, 39.8383291],
+//   },
+//   {
+//     MAP: 0,
+//     name: "Atlantic Station",
+//     coordinates: [-84.4041256, 33.7924957],
+//   },
+//   {
+//     MAP: 0,
+//     name: "Wilmington",
+//     coordinates: [-77.9421102, 34.207116],
+//   },
+//   {
+//     MAP: 2,
+//     name: "Chamberlain",
+//     coordinates: [-99.3598979, 43.7845057],
+//   },
+//   {
+//     MAP: 0,
+//     name: "Harrison",
+//     coordinates: [-103.8892718, 42.6891891],
+//   },
+//   {
+//     MAP: 35,
+//     name: "Great Falls",
+//     coordinates: [-111.3735546, 47.5047686],
+//   },
+//   {
+//     MAP: 0,
+//     name: "Denver",
+//     coordinates: [-104.9951957, 39.7642548],
+//   },
+//   {
+//     MAP: 0,
+//     name: "Spring Valley",
+//     coordinates: [-115.3317164, 36.0863414],
+//   },
+//   {
+//     MAP: 0,
+//     name: "Oakland",
+//     coordinates: [-122.3753924, 37.7586346],
+//   },
+// ];
 
 type Props = {};
 const default_color = "#9e9e9e";
@@ -99,7 +108,7 @@ const TowersMap = (props: Props) => {
           selectedMarker ? (
             <Box>
               <div>{selectedMarker.name}</div>
-              {/* <div>DAP: {selectedMarker.DAP}</div> */}
+              {/* <div>MAP: {selectedMarker.MAP}</div> */}
             </Box>
           ) : (
             ""
@@ -148,7 +157,7 @@ const TowersMap = (props: Props) => {
               ))
             }
           </Geographies>
-          {markers.map(({ name, coordinates, DAP }, index) => (
+          {markers.map(({ name, coordinates, MAP, antenna_number }, index) => (
             <Marker
               key={name}
               coordinates={coordinates as any}
@@ -159,7 +168,7 @@ const TowersMap = (props: Props) => {
                 setContent(null);
               }}
               onClick={() => {
-                navigate("/tower/" + Math.round(Math.random() * 10));
+                navigate("/tower/" + antenna_number);
               }}
               className="custom-marker"
               onMouseOver={() => {
@@ -201,7 +210,7 @@ const TowersMap = (props: Props) => {
                     strokeLinecap: "butt",
                     strokeLinejoin: "miter",
                     strokeMiterlimit: 10,
-                    fill: DAP > 0 ? deformed_color : default_color,
+                    fill: MAP > 0 ? deformed_color : default_color,
                     fillRule: "nonzero",
                     opacity: 1,
                     // transform: " matrix(1 0 0 1 0 0)",
@@ -217,7 +226,7 @@ const TowersMap = (props: Props) => {
                     strokeLinecap: "butt",
                     strokeLinejoin: "miter",
                     strokeMiterlimit: 10,
-                    fill: DAP > 33.333 ? deformed_color : default_color,
+                    fill: MAP > 33.333 ? deformed_color : default_color,
                     fillRule: "nonzero",
                     opacity: 1,
                     // transform: " matrix(1 0 0 1 0 0)",
@@ -233,7 +242,7 @@ const TowersMap = (props: Props) => {
                     strokeLinecap: "butt",
                     strokeLinejoin: "miter",
                     strokeMiterlimit: 10,
-                    fill: DAP > 66.666 ? deformed_color : default_color,
+                    fill: MAP > 66.666 ? deformed_color : default_color,
                     fillRule: "nonzero",
                     opacity: 1,
                   }}

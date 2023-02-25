@@ -9,10 +9,19 @@ import NavItem from "./NavItem";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import React from "react";
+import { styled, useTheme } from "@mui/material/styles";
 
 // ==============================|| DRAWER CONTENT - NAVIGATION ||============================== //
-
+const StyledMenu = styled(Menu)(({ theme }) => {
+  return {
+    ".MuiMenu-paper::before": {
+      backgroundColor:
+        theme.palette.mode === "dark" ? theme.palette.primary.main : undefined,
+    },
+  };
+});
 const Navigation = () => {
+  const theme = useTheme();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [listItems, setListItems] = React.useState<null | any>(null);
   const open = Boolean(anchorEl);
@@ -50,7 +59,7 @@ const Navigation = () => {
       <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
         {navGroups}
       </Box>
-      <Menu
+      <StyledMenu
         anchorEl={anchorEl}
         id="account-menu"
         open={open}
@@ -59,6 +68,10 @@ const Navigation = () => {
         PaperProps={{
           elevation: 0,
           sx: {
+            background:
+              theme.palette.mode === "dark"
+                ? theme.palette.primary.main
+                : undefined,
             overflow: "visible",
             filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
             mt: 1.5,
@@ -91,7 +104,7 @@ const Navigation = () => {
               <NavItem item={item} />
             </MenuItem>
           ))}
-      </Menu>
+      </StyledMenu>
     </Box>
   );
 };
