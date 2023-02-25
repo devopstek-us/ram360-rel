@@ -15,7 +15,7 @@ interface Props {
   children: React.ReactNode;
 }
 export default function ThemeCustomization({ children }: Props) {
-  const theme = PaletteConfig("dark");
+  const theme = PaletteConfig("light");
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const themeTypography = Typography(`'Public Sans', sans-serif`);
