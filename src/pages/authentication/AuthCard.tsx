@@ -17,6 +17,7 @@ const AuthCard = ({ children, ...other }: Props) => (
         flexGrow: 1,
         flexBasis: "50%",
       },
+      background:"#ffffff"
     }}
     content={false}
     {...other}

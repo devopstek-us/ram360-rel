@@ -27,7 +27,7 @@ const LogoLayout = () => {
   return (
     <>
       <StyledAppBar {...appBar}>
-        <Box p={2} mt={2}>
+        <Box p={2}>
           <HeaderLogo />
         </Box>
       </StyledAppBar>

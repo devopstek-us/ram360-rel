@@ -15,7 +15,7 @@ interface Props {
   children: React.ReactNode;
 }
 const AuthWrapper = ({ children }: Props) => (
-  <Box sx={{ minHeight: "100vh" }}>
+  <Box sx={{ minHeight: "calc(100vh - 77px)" }}>
     {/* <AuthBackground /> */}
     <AuthBackgroundSplitColor />
     <Grid
@@ -23,7 +23,7 @@ const AuthWrapper = ({ children }: Props) => (
       direction="column"
       justifyContent="flex-end"
       sx={{
-        minHeight: "100vh",
+        minHeight: "calc(100vh - 77px)",
       }}
     >
       {/* <Grid item xs={12} sx={{ ml: 3, mt: 3 }}>
@@ -37,7 +37,11 @@ const AuthWrapper = ({ children }: Props) => (
           justifyContent="center"
           alignItems="center"
           sx={{
-            minHeight: { xs: "calc(100vh - 134px)", md: "calc(100vh - 112px)" },
+            minHeight: {
+              xs: "calc(100vh - 134px - 77px)",
+              md: "calc(100vh - 77px)",
+            },
+            // minHeight: { xs: "calc(100vh - 134px)", md: "calc(100vh - 112px)" },
           }}
         >
           <Grid item>

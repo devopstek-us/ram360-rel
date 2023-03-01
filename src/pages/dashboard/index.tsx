@@ -94,42 +94,102 @@ const DashboardDefault = () => {
         <Typography variant="h5">Dashboard</Typography>
       </Grid> */}
       <Grid item xs={12}>
-        <Grid container alignItems="center" justifyContent="space-between">
-          <Grid item>
-            <Typography variant="h5">Summary</Typography>
+        <Grid container rowSpacing={1} columnSpacing={2}>
+          <Grid item xs={3}>
+            <AnalyticEcommerce
+              title="Total antennas"
+              count="4,42,236"
+              percentage={59.3}
+              extra="35,000"
+            />
           </Grid>
-          <Grid item>
-            <Stack direction="row" alignItems="center" spacing={0}>
-              {status.map((status) => {
-                return (
-                  <Button
-                    key={status.value}
-                    size="small"
-                    onClick={() => setSlot(status.value)}
-                    color={slot === status.value ? "primary" : "secondary"}
-                    variant={slot === status.value ? "outlined" : "text"}
-                  >
-                    {status.label}
-                  </Button>
-                );
-              })}
-            </Stack>
+          <Grid item xs={3}>
+            <AnalyticEcommerce
+              title="Total Towers"
+              count="78,250"
+              percentage={70.5}
+              extra="8,900"
+            />
+          </Grid>
+          <Grid item xs={3}>
+            <AnalyticEcommerce
+              title="Mis-aligned Antennas"
+              count="18,800"
+              percentage={27.4}
+              isLoss
+              color="warning"
+              extra="1,943"
+            />
+          </Grid>
+
+          <Grid item xs={3}>
+            <AnalyticEcommerce
+              title="Azimuth Corrected Antennas"
+              count="35,078"
+              percentage={27.4}
+              isLoss
+              color="warning"
+              extra="20,395"
+            />
           </Grid>
         </Grid>
-        <MainCard content={false} sx={{ mt: 0.5 }}>
-          <Box sx={{ pt: 1, pr: 2 }}>
-            <IncomeAreaChart slot={slot} />
-          </Box>
-        </MainCard>
       </Grid>
+
       <Grid item xs={12}>
         <Grid container rowSpacing={1} columnSpacing={2}>
-          <Grid item xs={12}>
+          <Grid item xs={6}>
             <Grid container alignItems="center" justifyContent="space-between">
-              <Grid item flex={1} textAlign={"center"}>
-                <Typography variant="h5">
-                  Realtime Antenna Monitoring 360
-                </Typography>
+              <Grid item>
+                <Typography variant="h5">Summary</Typography>
+              </Grid>
+              <Grid item>
+                <TextField
+                  id="summary-date-range"
+                  size="small"
+                  select
+                  value={slot}
+                  onChange={(e) => setSlot(e.target.value)}
+                  sx={{
+                    "& .MuiInputBase-input": {
+                      py: 0.5,
+                      fontSize: "0.875rem",
+                    },
+                  }}
+                >
+                  {status.map((option) => (
+                    <MenuItem key={option.value} value={option.value}>
+                      {option.label}
+                    </MenuItem>
+                  ))}
+                </TextField>
+                {/* <Stack direction="row" alignItems="center" spacing={0}>
+                  {status.map((status) => {
+                    return (
+                      <Button
+                        key={status.value}
+                        size="small"
+                        onClick={() => setSlot(status.value)}
+                        color={slot === status.value ? "primary" : "secondary"}
+                        variant={slot === status.value ? "outlined" : "text"}
+                      >
+                        {status.label}
+                      </Button>
+                    );
+                  })}
+                </Stack> */}
+              </Grid>
+            </Grid>
+            <MainCard content={false} sx={{ mt: 0.5 }}>
+              <Box sx={{ pt: 1, pr: 2 }}>
+                <IncomeAreaChart slot={slot} />
+              </Box>
+            </MainCard>
+          </Grid>
+
+          <Grid item xs={6}>
+            <Grid container alignItems="center" justifyContent="space-between">
+              <Grid item flex={1} textAlign={"left"}>
+                <Typography variant="h5">Tower Stats</Typography>
               </Grid>
               <Grid item>
                 <TextField
@@ -153,17 +213,6 @@ const DashboardDefault = () => {
                 </TextField>
               </Grid>
             </Grid>
-          </Grid>
-          <Grid item xs={4} sx={{ mb: -2.25 }}>
-            <Box display={"flex"} alignItems="center" flexDirection={"column"}>
-              {/* <Typography variant="h5">
-                Realtime Antenna Monitoring 360
-              </Typography> */}
-              <TowersMap />
-            </Box>
-          </Grid>
-
-          <Grid item xs={8}>
             {/* <Grid container rowSpacing={1} columnSpacing={2}>
               <Grid item xs={3}>
                 <AnalyticEcommerce
@@ -232,60 +281,39 @@ const DashboardDefault = () => {
                 </TextField>
               </Grid>
             </Grid> */}
-            <MainCard sx={{ mt: 1.75 }}>
-              <Stack spacing={1.5} sx={{ mb: -12 }}>
+            <MainCard sx={{ mt: 0.5 }}>
+              {/* <Stack spacing={1.5} sx={{ mb: -12 }}>
                 <Typography variant="h6" color="secondary">
                   Tower Stats
                 </Typography>
                 <Typography variant="h4">1560</Typography>
-              </Stack>
+              </Stack> */}
               <SalesColumnChart slot={value as any} />
             </MainCard>
           </Grid>
         </Grid>
       </Grid>
-
       <Grid item xs={12}>
-        <Grid container rowSpacing={1} columnSpacing={2}>
-          <Grid item xs={3}>
-            <AnalyticEcommerce
-              title="Total antennas"
-              count="4,42,236"
-              percentage={59.3}
-              extra="35,000"
-            />
-          </Grid>
-          <Grid item xs={3}>
-            <AnalyticEcommerce
-              title="Total Towers"
-              count="78,250"
-              percentage={70.5}
-              extra="8,900"
-            />
-          </Grid>
-          <Grid item xs={3}>
-            <AnalyticEcommerce
-              title="Mis-aligned Antennas"
-              count="18,800"
-              percentage={27.4}
-              isLoss
-              color="warning"
-              extra="1,943"
-            />
-          </Grid>
-
-          <Grid item xs={3}>
-            <AnalyticEcommerce
-              title="Azimuth Corrected Antennas"
-              count="35,078"
-              percentage={27.4}
-              isLoss
-              color="warning"
-              extra="20,395"
-            />
+        <Grid container alignItems="center" justifyContent="space-between">
+          <Grid item flex={1} textAlign={"left"}>
+            <Typography variant="h5">
+              Realtime Antenna Monitoring 360
+            </Typography>
           </Grid>
         </Grid>
+        <Box
+          display={"flex"}
+          alignItems="center"
+          flexDirection={"column"}
+          sx={{ mb: -2.25 }}
+        >
+          {/* <Typography variant="h5">
+                Realtime Antenna Monitoring 360
+              </Typography> */}
+          <TowersMap />
+        </Box>
       </Grid>
+
       <Grid item xs={12}>
         <Grid container alignItems="center" justifyContent="space-between">
           <Grid item>

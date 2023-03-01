@@ -180,7 +180,7 @@ const IncomeAreaChart = ({ slot }: any) => {
       options={options as any}
       series={series}
       type="area"
-      height={170}
+      height={300}
     />
   );
 };

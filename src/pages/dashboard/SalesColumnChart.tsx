@@ -51,8 +51,8 @@ const columnChartOptions = {
   legend: {
     show: true,
     fontFamily: `'Public Sans', sans-serif`,
-    offsetX: 10,
-    offsetY: 10,
+    // offsetX: 10,
+    // offsetY: 10,
     labels: {
       useSeriesColors: false,
     },
@@ -63,10 +63,10 @@ const columnChartOptions = {
       offsexX: 2,
       offsexY: 2,
     },
-    itemMargin: {
-      horizontal: 15,
-      vertical: 50,
-    },
+    // itemMargin: {
+    //   horizontal: 15,
+    //   vertical: 50,
+    // },
   },
   responsive: [
     {
@@ -88,7 +88,7 @@ interface Props {
 const SalesColumnChart = ({ slot }: Props) => {
   const theme = useTheme();
   const { primary, secondary } = theme.palette.text;
-  const greenColor = theme.palette.success.main;
+  const greenColor = theme.palette.success.light;
   const line = theme.palette.divider;
 
   const warning = theme.palette.warning.main;
@@ -168,13 +168,13 @@ const SalesColumnChart = ({ slot }: Props) => {
       tooltip: {
         theme: "light",
       },
-      legend: {
-        position: "top",
-        horizontalAlign: "right",
-        labels: {
-          colors: "grey.500",
-        },
-      },
+      // legend: {
+      //   position: "top",
+      //   horizontalAlign: "right",
+      //   labels: {
+      //     colors: "grey.500",
+      //   },
+      // },
     }));
 
     setSeries([
@@ -235,7 +235,7 @@ const SalesColumnChart = ({ slot }: Props) => {
         options={options as any}
         series={series}
         type="bar"
-        height={300}
+        height={300-30}
       />
     </div>
   );

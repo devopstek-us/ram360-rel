@@ -16,6 +16,7 @@ import {
   OutlinedInput,
   Stack,
   Typography,
+  styled,
 } from "@mui/material";
 
 // third party
@@ -31,6 +32,12 @@ import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
 
 // ============================|| FIREBASE - LOGIN ||============================ //
 
+const StyledButton = styled(Button)(({ theme }) => {
+  return {
+    border: "1px solid " + theme.palette.primary.main,
+    fontWeight: "bold"
+  };
+});
 const AuthLogin = () => {
   const navigate = useNavigate();
   const [checked, setChecked] = React.useState(false);
@@ -183,20 +190,21 @@ const AuthLogin = () => {
               )}
               <Grid item xs={12}>
                 <AnimateButton>
-                  <Button
+                  <StyledButton
                     disableElevation
                     disabled={isSubmitting}
                     fullWidth
                     size="large"
                     type="submit"
-                    variant="contained"
-                    color="primary"
+                    variant="outlined"
+                    // variant="contained"
+                    color="secondary"
                     onClick={() => {
                       navigate("/");
                     }}
                   >
                     Login
-                  </Button>
+                  </StyledButton>
                 </AnimateButton>
               </Grid>
               {/* <Grid item xs={12}>

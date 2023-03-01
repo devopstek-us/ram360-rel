@@ -19,8 +19,8 @@ const Palette = (mode: PaletteMode) => {
       },
       ...paletteColor,
       text: {
-        primary: paletteColor.grey[700],
-        secondary: paletteColor.grey[500],
+        primary: mode==='dark'?paletteColor.grey[900]:paletteColor.grey[700],
+        secondary: mode==='dark'?paletteColor.grey[800]:paletteColor.grey[500],
         disabled: paletteColor.grey[400],
       },
       action: {
@@ -28,8 +28,11 @@ const Palette = (mode: PaletteMode) => {
       },
       divider: paletteColor.grey[200],
       background: {
-        paper: paletteColor.grey[50],
-        default: paletteColor.grey.A100,
+        paper: mode === "dark" ? paletteColor.primary.lighter: paletteColor.grey[50],
+        default:
+          mode === "dark"
+            ? paletteColor.secondary.lighter
+            : "#F7F8FA",
       },
     },
   });

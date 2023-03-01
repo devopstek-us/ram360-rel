@@ -27,7 +27,8 @@ const Login = () => (
             justifyContent={"center"}
             alignItems={"center"}
           >
-              <Logo />
+            {/* <Logo /> */}
+            <Typography variant="h1" color={"primary"}>Log In</Typography>
           </Box>
           {/* <Typography component={Link} to="/register" variant="body1" sx={{ textDecoration: 'none' }} color="primary">
                         Don&apos;t have an account?
