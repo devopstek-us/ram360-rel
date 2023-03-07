@@ -39,6 +39,19 @@ const MainRoutes = {
       element: <Color />,
     },
     {
+      path: "tower",
+      children: [
+        {
+          path: ":id",
+          element: <TowerDetails />,
+        },
+        {
+          path: "",
+          element: <Navigate to="/invalid" replace />,
+        },
+      ],
+    },
+    {
       path: "dashboard",
       children: [
         {

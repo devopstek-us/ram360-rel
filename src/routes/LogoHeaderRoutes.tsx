@@ -15,19 +15,6 @@ const LogoHeaderRoutes = {
   path: "/",
   element: <LogoLayout />,
   children: [
-    {
-      path: "tower",
-      children: [
-        {
-          path: ":id",
-          element: <TowerDetails />,
-        },
-        {
-          path: "",
-          element: <Navigate to="/invalid" replace />,
-        },
-      ],
-    },
     // { path: "login", element: <AuthLogin /> },
     {
       path: "*",
