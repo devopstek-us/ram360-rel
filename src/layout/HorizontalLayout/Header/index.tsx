@@ -37,8 +37,8 @@ const Header = ({ open, handleDrawerToggle }: Props) => {
           </Box>
           <Navigation />
 
-          {/* <Notification />
-          <Profile /> */}
+          <Notification />
+          <Profile />
         </Toolbar>
       </AppBar>
     </>

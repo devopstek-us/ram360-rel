@@ -121,10 +121,10 @@ const TowersMap = (props: Props) => {
           projection="geoAzimuthalEqualArea"
           projectionConfig={{
             rotate: [65, 20, 0],
-            scale: 800,
-            center: [-37, 45],
+            scale: 900,
+            center: [-37, 50],
           }}
-          // height={500}
+          height={500}
         >
           <Geographies geography={geoUrl}>
             {({ geographies }: any) =>
@@ -132,8 +132,9 @@ const TowersMap = (props: Props) => {
                 <Geography
                   key={geo.rsmKey}
                   geography={geo}
-                  fill="#EAEAEC"
-                  stroke="#D6D6DA"
+                  fill="#ffdff7"
+                  stroke="#505050"
+                  strokeWidth={0.6}
                   // style={{
                   //   default: {
                   //     fill: "#D6D6DA",
@@ -150,7 +151,7 @@ const TowersMap = (props: Props) => {
                   // }}
                   style={{
                     default: { outline: "none" },
-                    hover: { outline: "none" },
+                    hover: { outline: "none", stroke:"#000000" },
                     pressed: { outline: "none" },
                   }}
                 />

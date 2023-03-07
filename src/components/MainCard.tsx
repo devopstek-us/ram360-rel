@@ -35,8 +35,8 @@ interface Props {
 const MainCard = forwardRef(
   (
     {
-      border = true,
-      boxShadow,
+      border = false,
+      boxShadow=true,
       children,
       content = true,
       contentSX = {},
@@ -70,10 +70,10 @@ const MainCard = forwardRef(
               : theme.palette.grey.A800,
           boxShadow:
             boxShadow && (!border || theme.palette.mode === "dark")
-              ? shadow || theme.customShadows.z1
+              ? shadow || theme.customShadows.z2
               : "inherit",
           ":hover": {
-            boxShadow: boxShadow ? shadow || theme.customShadows.z1 : "inherit",
+            boxShadow: boxShadow ? shadow || theme.customShadows.z2 : "inherit",
           },
           "& pre": {
             m: 0,

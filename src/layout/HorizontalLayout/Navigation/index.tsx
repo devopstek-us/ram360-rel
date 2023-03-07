@@ -55,7 +55,12 @@ const Navigation = () => {
   });
 
   return (
-    <Box flex={"1"} display="flex" flexDirection={"row-reverse"}>
+    <Box
+      flex={"1"}
+      display="flex"
+      flexDirection={"row-reverse"}
+      justifyContent="center"
+    >
       <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
         {navGroups}
       </Box>

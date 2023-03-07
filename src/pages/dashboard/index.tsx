@@ -15,6 +15,7 @@ import {
   ListItemText,
   MenuItem,
   Stack,
+  styled,
   TextField,
   Typography,
 } from "@mui/material";
@@ -40,6 +41,12 @@ import avatar3 from "assets/images/users/avatar-3.png";
 import avatar4 from "assets/images/users/avatar-4.png";
 import TowersMap from "./TowersMap";
 
+const StyledGrid = (styled(Grid))(({theme})=>{
+  return {
+    background: theme.palette.primary.light,
+    padding: theme.spacing(2)
+  }
+})
 // avatar style
 const avatarSX = {
   width: 36,
@@ -93,8 +100,8 @@ const DashboardDefault = () => {
       {/* <Grid item xs={12} sx={{ mb: -2.25 }}>
         <Typography variant="h5">Dashboard</Typography>
       </Grid> */}
-      <Grid item xs={12}>
-        <Grid container rowSpacing={1} columnSpacing={2}>
+      <Grid item xs={12} sx={{mt:2}}>
+        <Grid container rowSpacing={1} columnSpacing={3}>
           <Grid item xs={3}>
             <AnalyticEcommerce
               title="Total antennas"
@@ -136,33 +143,38 @@ const DashboardDefault = () => {
       </Grid>
 
       <Grid item xs={12}>
-        <Grid container rowSpacing={1} columnSpacing={2}>
+        <Grid container rowSpacing={1} columnSpacing={3}>
           <Grid item xs={6}>
-            <Grid container alignItems="center" justifyContent="space-between">
-              <Grid item>
-                <Typography variant="h5">Summary</Typography>
-              </Grid>
-              <Grid item>
-                <TextField
-                  id="summary-date-range"
-                  size="small"
-                  select
-                  value={slot}
-                  onChange={(e) => setSlot(e.target.value)}
-                  sx={{
-                    "& .MuiInputBase-input": {
-                      py: 0.5,
-                      fontSize: "0.875rem",
-                    },
-                  }}
-                >
-                  {status.map((option) => (
-                    <MenuItem key={option.value} value={option.value}>
-                      {option.label}
-                    </MenuItem>
-                  ))}
-                </TextField>
-                {/* <Stack direction="row" alignItems="center" spacing={0}>
+            <MainCard>
+              <Grid
+                container
+                alignItems="center"
+                justifyContent="space-between"
+              >
+                <Grid item>
+                  <Typography variant="h5">Summary</Typography>
+                </Grid>
+                <Grid item>
+                  <TextField
+                    id="summary-date-range"
+                    size="small"
+                    select
+                    value={slot}
+                    onChange={(e) => setSlot(e.target.value)}
+                    sx={{
+                      "& .MuiInputBase-input": {
+                        py: 0.5,
+                        fontSize: "0.875rem",
+                      },
+                    }}
+                  >
+                    {status.map((option) => (
+                      <MenuItem key={option.value} value={option.value}>
+                        {option.label}
+                      </MenuItem>
+                    ))}
+                  </TextField>
+                  {/* <Stack direction="row" alignItems="center" spacing={0}>
                   {status.map((status) => {
                     return (
                       <Button
@@ -177,42 +189,13 @@ const DashboardDefault = () => {
                     );
                   })}
                 </Stack> */}
+                </Grid>
               </Grid>
-            </Grid>
-            <MainCard content={false} sx={{ mt: 0.5 }}>
-              <Box sx={{ pt: 1, pr: 2 }}>
-                <IncomeAreaChart slot={slot} />
-              </Box>
+              <IncomeAreaChart slot={slot} />
             </MainCard>
           </Grid>
 
           <Grid item xs={6}>
-            <Grid container alignItems="center" justifyContent="space-between">
-              <Grid item flex={1} textAlign={"left"}>
-                <Typography variant="h5">Tower Stats</Typography>
-              </Grid>
-              <Grid item>
-                <TextField
-                  id="standard-select-currency"
-                  size="small"
-                  select
-                  value={value}
-                  onChange={(e) => setValue(e.target.value)}
-                  sx={{
-                    "& .MuiInputBase-input": {
-                      py: 0.5,
-                      fontSize: "0.875rem",
-                    },
-                  }}
-                >
-                  {status.map((option) => (
-                    <MenuItem key={option.value} value={option.value}>
-                      {option.label}
-                    </MenuItem>
-                  ))}
-                </TextField>
-              </Grid>
-            </Grid>
             {/* <Grid container rowSpacing={1} columnSpacing={2}>
               <Grid item xs={3}>
                 <AnalyticEcommerce
@@ -281,7 +264,37 @@ const DashboardDefault = () => {
                 </TextField>
               </Grid>
             </Grid> */}
-            <MainCard sx={{ mt: 0.5 }}>
+            <MainCard sx={{ height: "100%" }}>
+              <Grid
+                container
+                alignItems="center"
+                justifyContent="space-between"
+              >
+                <Grid item flex={1} textAlign={"left"}>
+                  <Typography variant="h5">Tower Stats</Typography>
+                </Grid>
+                <Grid item>
+                  <TextField
+                    id="standard-select-currency"
+                    size="small"
+                    select
+                    value={value}
+                    onChange={(e) => setValue(e.target.value)}
+                    sx={{
+                      "& .MuiInputBase-input": {
+                        py: 0.5,
+                        fontSize: "0.875rem",
+                      },
+                    }}
+                  >
+                    {status.map((option) => (
+                      <MenuItem key={option.value} value={option.value}>
+                        {option.label}
+                      </MenuItem>
+                    ))}
+                  </TextField>
+                </Grid>
+              </Grid>
               {/* <Stack spacing={1.5} sx={{ mb: -12 }}>
                 <Typography variant="h6" color="secondary">
                   Tower Stats
@@ -294,34 +307,32 @@ const DashboardDefault = () => {
         </Grid>
       </Grid>
       <Grid item xs={12}>
-        <Grid container alignItems="center" justifyContent="space-between">
-          <Grid item flex={1} textAlign={"left"}>
-            <Typography variant="h5">
-              Realtime Antenna Monitoring 360
-            </Typography>
+        <MainCard>
+          <Grid container alignItems="center" justifyContent="space-between">
+            <Grid item flex={1} textAlign={"left"}>
+              <Typography variant="h5">
+                Realtime Antenna Monitoring 360
+              </Typography>
+            </Grid>
           </Grid>
-        </Grid>
-        <Box
-          display={"flex"}
-          alignItems="center"
-          flexDirection={"column"}
-          sx={{ mb: -2.25 }}
-        >
-          {/* <Typography variant="h5">
+          <Box display={"flex"} alignItems="center" flexDirection={"column"}>
+            {/* <Typography variant="h5">
                 Realtime Antenna Monitoring 360
               </Typography> */}
-          <TowersMap />
-        </Box>
+            <TowersMap />
+          </Box>
+        </MainCard>
       </Grid>
 
       <Grid item xs={12}>
-        <Grid container alignItems="center" justifyContent="space-between">
-          <Grid item>
-            <Typography variant="h5">Towers List</Typography>
-          </Grid>
-          <Grid item />
-        </Grid>
-        <MainCard sx={{ mt: 2 }} content={false}>
+        <MainCard content={false}>
+          {/* <StyledGrid container alignItems="center" justifyContent="space-between">
+            <Grid item>
+              <Typography variant="h5">Towers List</Typography>
+            </Grid>
+            <Grid item />
+          </StyledGrid> */}
+
           <OrdersTable />
         </MainCard>
       </Grid>

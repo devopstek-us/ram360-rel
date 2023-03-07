@@ -1,5 +1,3 @@
-
-
 // material-ui
 import { Box, Chip, Grid, Stack, Typography } from "@mui/material";
 
@@ -28,16 +26,33 @@ const AnalyticEcommerce = ({
 }: Props) => (
   <MainCard contentSX={{ p: 2.25 }}>
     <Stack spacing={0.5}>
-      <Typography variant="h6" color="textSecondary">
-        {title}
-      </Typography>
+      <Box display={"flex"} justifyContent="space-between">
+        <Typography variant="h6" color="textSecondary">
+          {title}
+        </Typography>
+        {percentage && (
+          <Typography variant="subtitle1">
+            {`${percentage}%`}
+            {!isLoss && (
+              <Box color="success.main" display={"inline-block"} ml={0.4}>
+                <RiseOutlined style={{ fontSize: "1rem", color: "inherit" }} />
+              </Box>
+            )}
+            {isLoss && (
+              <Box color="error.main" display={"inline-block"} ml={0.4}>
+                <FallOutlined style={{ fontSize: "1rem", color: "inherit" }} />
+              </Box>
+            )}
+          </Typography>
+        )}
+      </Box>
       <Grid container alignItems="center">
         <Grid item>
           <Typography variant="h4" color="inherit">
             {count}
           </Typography>
         </Grid>
-        {percentage && (
+        {/* {percentage && (
           <Grid item>
             <Chip
               variant="filled"
@@ -61,7 +76,7 @@ const AnalyticEcommerce = ({
               size="small"
             />
           </Grid>
-        )}
+        )} */}
       </Grid>
     </Stack>
     {/* <Box sx={{ pt: 2.25 }}>

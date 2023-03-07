@@ -60,7 +60,7 @@ const ProfileTab = ({ handleLogout }: Props) => {
         <ListItemText primary="View Profile" />
       </ListItemButton>
 
-      <ListItemButton
+      {/* <ListItemButton
         selected={selectedIndex === 3}
         onClick={(event) => handleListItemClick(event, 3)}
       >
@@ -68,8 +68,8 @@ const ProfileTab = ({ handleLogout }: Props) => {
           <ProfileOutlined />
         </ListItemIcon>
         <ListItemText primary="Social Profile" />
-      </ListItemButton>
-      <ListItemButton
+      </ListItemButton> */}
+      {/* <ListItemButton
         selected={selectedIndex === 4}
         onClick={(event) => handleListItemClick(event, 4)}
       >
@@ -77,7 +77,7 @@ const ProfileTab = ({ handleLogout }: Props) => {
           <WalletOutlined />
         </ListItemIcon>
         <ListItemText primary="Billing" />
-      </ListItemButton>
+      </ListItemButton> */}
       <ListItemButton selected={selectedIndex === 2} onClick={handleLogout}>
         <ListItemIcon>
           <LogoutOutlined />

@@ -28,7 +28,7 @@ const Palette = (mode: PaletteMode) => {
       },
       divider: paletteColor.grey[200],
       background: {
-        paper: mode === "dark" ? paletteColor.primary.lighter: paletteColor.grey[50],
+        paper: mode === "dark" ? paletteColor.primary.lighter: "#ffffff",
         default:
           mode === "dark"
             ? paletteColor.secondary.lighter

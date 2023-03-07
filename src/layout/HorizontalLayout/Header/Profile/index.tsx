@@ -169,7 +169,7 @@ const Profile = () => {
                             <Stack>
                               <Typography variant="h6">John Doe</Typography>
                               <Typography variant="body2" color="textSecondary">
-                                UI/UX Designer
+                                Master Admin
                               </Typography>
                             </Stack>
                           </Stack>

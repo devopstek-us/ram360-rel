@@ -362,7 +362,7 @@ const headCells = [
 function OrderTableHead({ order, orderBy }: any) {
   return (
     <TableHead>
-      <TableRow>
+      <TableRow sx={{background: '#e78cd9'}}>
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}

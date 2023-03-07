@@ -19,27 +19,27 @@ const LoginRoutes = {
   path: "/",
   element: <MinimalLayout />,
   children: [
-    // {
-    //   path: "login",
-    //   element: <AuthLogin />,
-    // },
+    {
+      path: "login",
+      element: <AuthLogin />,
+    },
     {
       path: "register",
       element: <AuthRegister />,
     },
-    {
-      path: "tower",
-      children: [
-        {
-          path: ":id",
-          element: <TowerDetails />,
-        },
-        {
-          path: "",
-          element: <Navigate to="/invalid" replace />,
-        },
-      ],
-    },
+    // {
+    //   path: "tower",
+    //   children: [
+    //     {
+    //       path: ":id",
+    //       element: <TowerDetails />,
+    //     },
+    //     {
+    //       path: "",
+    //       element: <Navigate to="/invalid" replace />,
+    //     },
+    //   ],
+    // },
   ],
 };
 
