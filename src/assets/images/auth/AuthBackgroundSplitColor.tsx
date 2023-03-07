@@ -11,9 +11,9 @@ const StyledBox = styled(Box)<
     background: `${backgorund || "#FFB5EF"} 0% 0% no-repeat padding-box`,
     opacity: 1,
     // shapeOutside: "ellipse(40% 50% at left)",
-    clipPath: "ellipse(40% 50%)",
+    clipPath: "ellipse(45% 50%)",
     position: "absolute",
-    width: "75%",
+    width: "70%",
     height: "100vh",
     ...(location !== "bottom"
       ? { top: "-14vh", left: "-15vw" }

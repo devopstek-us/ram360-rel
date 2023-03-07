@@ -1,6 +1,6 @@
 import React from "react";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
-
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 // material-ui
 import {
   Button,
@@ -17,6 +17,7 @@ import {
   Stack,
   Typography,
   styled,
+  Box,
 } from "@mui/material";
 
 // third party
@@ -35,7 +36,7 @@ import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
 const StyledButton = styled(Button)(({ theme }) => {
   return {
     border: "1px solid " + theme.palette.primary.main,
-    fontWeight: "bold"
+    fontWeight: "bold",
   };
 });
 const AuthLogin = () => {
@@ -88,6 +89,14 @@ const AuthLogin = () => {
         }) => (
           <form noValidate onSubmit={handleSubmit}>
             <Grid container spacing={3}>
+              <Grid item xs={12}>
+                <Box display={"flex"} justifyContent="center" alignItems={"center"}>
+                  <AccountCircleOutlinedIcon />
+                  <Typography variant="h4" color={"primary"} sx={{ml:0.3}}>
+                    Log In
+                  </Typography>
+                </Box>
+              </Grid>
               <Grid item xs={12}>
                 <Stack spacing={1}>
                   <InputLabel htmlFor="email-login">Email Address</InputLabel>
@@ -203,7 +212,7 @@ const AuthLogin = () => {
                       navigate("/");
                     }}
                   >
-                    Login
+                    Sign In
                   </StyledButton>
                 </AnimateButton>
               </Grid>

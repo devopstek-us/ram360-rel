@@ -362,12 +362,13 @@ const headCells = [
 function OrderTableHead({ order, orderBy }: any) {
   return (
     <TableHead>
-      <TableRow sx={{background: '#e78cd9'}}>
+      <TableRow sx={{ background: "#e78cd9" }}>
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
             align={headCell.align as any}
-            padding={headCell.disablePadding ? "none" : "normal"}
+            sx={{ paddingTop: "16px", paddingBottom: "14px" }}
+            // padding={headCell.disablePadding ? "none" : "normal"}
             sortDirection={orderBy === headCell.id ? order : false}
           >
             {headCell.label}
