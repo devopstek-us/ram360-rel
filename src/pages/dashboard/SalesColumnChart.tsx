@@ -91,7 +91,8 @@ const SalesColumnChart = ({ slot }: Props) => {
   const greenColor = theme.palette.success.light;
   const line = theme.palette.divider;
 
-  const warning = theme.palette.warning.main;
+  // const warning = theme.palette.warning.main;
+  const warning = theme.palette.error.light;
   const primaryMain = theme.palette.primary.main;
   const successDark = theme.palette.success.dark;
 
@@ -111,7 +112,7 @@ const SalesColumnChart = ({ slot }: Props) => {
   useEffect(() => {
     setOptions((prevState: any) => ({
       ...prevState,
-      colors: [greenColor, warning],
+      colors: [warning, greenColor],
       xaxis: {
         labels: {
           style: {

@@ -40,7 +40,7 @@ const IncomeAreaChart = ({ slot }: any) => {
   useEffect(() => {
     setOptions((prevState: any) => ({
       ...prevState,
-      colors: [theme.palette.error.main, theme.palette.success.main],
+      colors: [theme.palette.error.light, theme.palette.success.light],
       xaxis: {
         categories:
           slot === "day"
