@@ -15,6 +15,8 @@ declare global {
 
     interface MyElementAttributes {
       tower: any;
+      latitude?: any;
+      longitude?: any;
     }
   }
 }
@@ -28,7 +30,7 @@ const TowerDetails = (props: Props) => {
     <Navigate to={"/invalid-tower"} />
   ) : (
     <div>
-      <tower-dashboard tower={tower}></tower-dashboard>
+      <tower-dashboard tower={tower} longitude={tower.longitude} latitude={tower.latitude}></tower-dashboard>
     </div>
   );
 };
