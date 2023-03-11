@@ -30,7 +30,7 @@ const TowerDetails = (props: Props) => {
     <Navigate to={"/invalid-tower"} />
   ) : (
     <div>
-      <tower-dashboard tower={tower} longitude={tower.longitude} latitude={tower.latitude}></tower-dashboard>
+      <tower-dashboard tower={JSON.stringify(tower)}></tower-dashboard>
     </div>
   );
 };
